@@ -1,37 +1,22 @@
 import CONFIG from './config.js';
 
 export function initMusic() {
-  const btn = document.getElementById('music-btn');
-  if (!btn) return;
+  const btn   = document.getElementById('music-btn');
+  const audio = document.getElementById('music-audio');
+  if (!btn || !audio) return;
 
-  // Create audio element fresh to avoid stale state
-  const audio = document.createElement('audio');
-  audio.loop    = true;
-  audio.preload = 'none';
-  audio.volume  = 0;
-  audio.setAttribute('aria-hidden', 'true');
+  audio.src    = CONFIG.music.src;
+  audio.loop   = true;
+  audio.volume = 0;
 
-  // Set source with both a <source> child and .src fallback
-  const source = document.createElement('source');
-  source.src  = CONFIG.music.src;
-  source.type = 'audio/mpeg';
-  audio.appendChild(source);
-  audio.src = CONFIG.music.src;
-
-  document.body.appendChild(audio);
-
-  // Remove any old placeholder audio element from HTML
-  const oldAudio = document.getElementById('music-audio');
-  if (oldAudio) oldAudio.remove();
-
-  let playing  = false;
+  let playing = false;
   let fadeRaf  = null;
 
   function fadeTo(targetVol, duration, onDone) {
     if (fadeRaf) cancelAnimationFrame(fadeRaf);
-    const start    = performance.now();
-    const startVol = audio.volume;
-    const delta    = targetVol - startVol;
+    const start     = performance.now();
+    const startVol  = audio.volume;
+    const delta     = targetVol - startVol;
 
     function step(now) {
       const t = Math.min((now - start) / duration, 1);
@@ -47,33 +32,50 @@ export function initMusic() {
   }
 
   function play() {
-    // load() resets the element so .play() works reliably after src set
-    audio.load();
-    const promise = audio.play();
-    if (promise !== undefined) {
-      promise.then(() => {
-        fadeTo(0.65, CONFIG.music.fadeTime);
-        btn.classList.add('is-playing');
-        btn.setAttribute('aria-label', 'Pausar música');
-        playing = true;
-      }).catch((err) => {
-        console.warn('Audio play blocked:', err);
-      });
-    }
+    audio.play().then(() => {
+      fadeTo(0.65, CONFIG.music.fadeTime);
+      btn.classList.add('is-playing');
+      btn.setAttribute('aria-label', 'Pausar música');
+      playing = true;
+    }).catch(() => {});
   }
 
   function pause() {
-    fadeTo(0, CONFIG.music.fadeTime / 2, () => { audio.pause(); });
+    fadeTo(0, CONFIG.music.fadeTime, () => { audio.pause(); });
     btn.classList.remove('is-playing');
     btn.setAttribute('aria-label', 'Reproducir música');
     playing = false;
   }
 
+  // Toggle manual con el botón
   btn.addEventListener('click', () => { playing ? pause() : play(); });
   btn.setAttribute('aria-label', 'Reproducir música');
 
+  // Pausar cuando se oculta la pestaña
   document.addEventListener('visibilitychange', () => {
     if (document.hidden && playing) pause();
   });
-}
 
+  // ✅ NUEVA FUNCIONALIDAD: Reproducir automáticamente cuando el usuario ingresa
+  // Escuchar el evento personalizado que se dispara en envelope.js
+  document.addEventListener('wedding:auth', () => {
+    // Esperar un pequeño delay para que la transición de la pantalla se complete
+    setTimeout(() => {
+      play();
+    }, 800); // 800ms después de que comienza la transición
+  });
+
+  // ✅ ALTERNATIVA: Si CONFIG.music.autoplay está en true, también reproducir
+  if (CONFIG.music.autoplay) {
+    // Intentar reproducir si ya hay autenticación previa (sessionStorage)
+    if (sessionStorage.getItem('wedding_auth') === 'true') {
+      // Esperar a que el usuario interactúe con la página
+      const startOnInteraction = () => {
+        play();
+        document.removeEventListener('click', startOnInteraction);
+        document.removeEventListener('touchstart', startOnInteraction);
+      };
+      document.addEventListener('click', startOnInteraction, { once: true });
+      document.addEventListener('touchstart', startOnInteraction, { once: true });
+    }
+  }
