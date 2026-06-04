@@ -1,0 +1,96 @@
+/* ============================================================
+   KEYFRAMES
+   ============================================================ */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes envFloat {
+  0%   { transform: translateY(0)   rotate(0deg);   opacity: inherit; }
+  50%  { transform: translateY(-30px) rotate(180deg); }
+  100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  15%      { transform: translateX(-8px); }
+  30%      { transform: translateX(7px); }
+  45%      { transform: translateX(-6px); }
+  60%      { transform: translateX(5px); }
+  75%      { transform: translateX(-3px); }
+  90%      { transform: translateX(2px); }
+}
+
+.shake { animation: shake 0.55s var(--ease-in-out, cubic-bezier(0.45,0,0.55,1)) both; }
+
+@keyframes blink {
+  0%,100% { opacity: 0.4; }
+  50%     { opacity: 0.1; }
+}
+
+@keyframes scrollPulse {
+  0%,100% { transform: scaleY(1);   opacity: 0.7; }
+  50%     { transform: scaleY(1.4); opacity: 0.3; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes musicRing {
+  0%   { transform: scale(1);   opacity: 0.6; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+
+@keyframes sealPop {
+  0%   { transform: scale(0) rotate(-15deg); opacity: 0; }
+  70%  { transform: scale(1.15) rotate(3deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.env-seal { animation: sealPop 0.7s 0.4s var(--ease-out-expo, cubic-bezier(0.16,1,0.3,1)) both; }
+
+@keyframes cdFlip {
+  0%   { transform: rotateX(0);    }
+  50%  { transform: rotateX(-90deg); }
+  100% { transform: rotateX(0);    }
+}
+
+.cd-number.flip { animation: cdFlip 0.35s ease both; }
+
+/* ============================================================
+   REVEAL DELAYS
+   ============================================================ */
+[data-delay="100"] { transition-delay: 0.1s; }
+[data-delay="200"] { transition-delay: 0.2s; }
+[data-delay="300"] { transition-delay: 0.3s; }
+[data-delay="400"] { transition-delay: 0.4s; }
+[data-delay="500"] { transition-delay: 0.5s; }
+[data-delay="600"] { transition-delay: 0.6s; }
+[data-delay="700"] { transition-delay: 0.7s; }
+[data-delay="800"] { transition-delay: 0.8s; }
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,143 @@
+/* ============================================================
+   RESPONSIVE — mobile-first breakpoints
+   ============================================================ */
+
+/* ---- Tablet landscape & small desktop (≤ 1024px) ---------- */
+@media (max-width: 1024px) {
+  .event-layout   { grid-template-columns: 1fr; gap: 48px; }
+  .playlist-layout { grid-template-columns: 1fr; }
+  .playlist-embed  { max-width: 560px; }
+  .event-venue     { align-items: center; text-align: center; }
+}
+
+/* ---- Tablet portrait (≤ 768px) ---------------------------- */
+@media (max-width: 768px) {
+  :root { --section-pad: clamp(60px, 10vw, 80px); }
+
+  /* Gallery */
+  #gallery-grid { columns: 2 160px; }
+
+  /* Timeline */
+  .event-timeline::before { left: 56px; }
+
+  /* Lightbox nav */
+  .lb-content { padding: 0 48px; }
+}
+
+/* ---- Large phone (≤ 480px) -------------------------------- */
+@media (max-width: 480px) {
+  /* Envelope */
+  .envelope-scene {
+    width: min(320px, 88vw);
+    height: min(230px, 58vw);
+  }
+
+  .env-letter.letter-rise {
+    transform: translateX(-50%) translateY(-70px);
+  }
+
+  .env-letter-inner {
+    padding: 20px 18px 22px;
+    gap: 4px;
+  }
+
+  .env-letter-bride,
+  .env-letter-groom { font-size: clamp(1.3rem, 7vw, 1.7rem); }
+
+  .env-form { max-width: 100%; }
+
+  /* Hero */
+  .hero-names { font-size: clamp(2.6rem, 14vw, 4rem); }
+
+  /* Countdown */
+  .countdown-grid { gap: 12px; }
+  .cd-number      { font-size: clamp(2.6rem, 11vw, 4rem); }
+  .cd-sep         { display: none; }
+  .cd-unit        { min-width: 60px; }
+
+  /* Gallery */
+  #gallery-grid { columns: 1; }
+
+  /* Event timeline */
+  .timeline-time { font-size: 1.1rem; min-width: 54px; }
+  .event-timeline::before { left: 54px; }
+
+  /* Venue card */
+  .venue-card { padding: 20px 20px; }
+
+  /* Dress code */
+  .dresscode-card { padding: 40px 24px; }
+
+  /* Gift */
+  .gift-alias { font-size: 1.6rem; }
+
+  /* Lightbox */
+  .lb-content     { padding: 0 12px; }
+  .lb-nav         { width: 36px; height: 36px; }
+  .lb-prev        { left: 4px; }
+  .lb-next        { right: 4px; }
+
+  /* Music & Toast */
+  #music-btn { bottom: 20px; right: 20px; width: 46px; height: 46px; }
+  .toast     { right: 16px; bottom: 80px; }
+}
+
+/* ---- Small phone (≤ 375px) -------------------------------- */
+@media (max-width: 375px) {
+  .envelope-scene {
+    width: 96vw;
+    height: calc(96vw * 0.62);
+  }
+
+  .env-letter.letter-rise {
+    transform: translateX(-50%) translateY(-60vw);
+  }
+
+  .hero-names { font-size: clamp(2.2rem, 15vw, 3.2rem); }
+}
+
+/* ---- Very small phone (≤ 320px) --------------------------- */
+@media (max-width: 320px) {
+  .env-seal { width: 44px; height: 44px; }
+  .env-seal-letter { font-size: 0.75rem; }
+
+  .hero-names  { font-size: 2rem; }
+  .hero-date   { font-size: 0.58rem; letter-spacing: 0.18em; }
+
+  .cd-unit     { min-width: 50px; }
+  .cd-number   { font-size: 2.2rem; }
+
+  .section-title { font-size: 1.7rem; }
+}
+
+/* ---- No-hover devices (touch) ----------------------------- */
+@media (hover: none) {
+  .gallery-overlay { display: none; }
+  .gallery-item img { transition: none; }
+}
+
+/* ---- Landscape phones ------------------------------------- */
+@media (max-height: 500px) and (orientation: landscape) {
+  #hero { height: 100svh; min-height: 340px; }
+
+  .env-letter.letter-rise {
+    transform: translateX(-50%) translateY(-200px);
+  }
+
+  .envelope-scene {
+    width: min(300px, 52vw);
+    height: min(210px, 37vw);
+  }
+}
+
+/* ---- Print ------------------------------------------------- */
+@media print {
+  #envelope-screen,
+  #music-btn,
+  .toast,
+  .lb-nav,
+  .lb-close { display: none !important; }
+
+  #main-content { display: block !important; }
+  #hero { height: auto; page-break-after: always; }
+}

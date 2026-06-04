@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#2C3A5D" />
+  <meta name="description" content="Mariana Ailin & Pablo Matias — Casamiento 10 de Octubre 2026, Villa Carlos Paz" />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mariana & Pablo — 10.10.2026" />
+  <meta property="og:description" content="Te invitamos a celebrar nuestro casamiento." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/hero.jpg" />
+
+  <title>Mariana &amp; Pablo · 10.10.2026</title>
+
+  <!-- Preconnect fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+  />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <!-- Preload hero -->
+  <link rel="preload" as="image" href="assets/hero.jpg" />
+</head>
+<body>
+
+  <!-- ========================================================
+       ENVELOPE / ACCESS SCREEN
+       ======================================================== -->
+  <div id="envelope-screen" aria-label="Pantalla de acceso" role="main"></div>
+
+  <!-- ========================================================
+       MAIN INVITATION CONTENT
+       ======================================================== -->
+  <main id="main-content" aria-label="Invitación de casamiento">
+
+    <!-- HERO -->
+    <section id="hero" aria-label="Portada">
+      <div class="hero-bg" role="img" aria-label="Foto de Mariana y Pablo"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+      <div class="hero-content">
+        <p class="hero-eyebrow">Nos casamos</p>
+        <h1 class="hero-names">
+          Mariana Ailin
+          <span class="amp">&amp;</span>
+          Pablo Matias
+        </h1>
+        <div class="hero-divider" aria-hidden="true"></div>
+        <p class="hero-date">10 de Octubre de 2026</p>
+        <p class="hero-location">Villa Carlos Paz</p>
+      </div>
+
+      <div class="hero-scroll" aria-hidden="true">
+        <div class="hero-scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- COUNTDOWN -->
+    <section id="countdown" aria-label="Cuenta regresiva">
+      <div class="countdown-inner">
+        <p class="countdown-label" data-reveal>Faltan</p>
+        <div class="countdown-grid" role="timer" aria-live="off" aria-label="Cuenta regresiva para el casamiento">
+          <div class="cd-unit" data-reveal data-delay="100">
+            <span class="cd-number" id="cd-days" aria-label="días">—</span>
+            <span class="cd-unit-label">Días</span>
+          </div>
+          <div class="cd-sep" aria-hidden="true" data-reveal data-delay="150">:</div>
+          <div class="cd-unit" data-reveal data-delay="200">
+            <span class="cd-number" id="cd-hours" aria-label="horas">—</span>
+            <span class="cd-unit-label">Horas</span>
+          </div>
+          <div class="cd-sep" aria-hidden="true" data-reveal data-delay="250">:</div>
+          <div class="cd-unit" data-reveal data-delay="300">
+            <span class="cd-number" id="cd-mins" aria-label="minutos">—</span>
+            <span class="cd-unit-label">Minutos</span>
+          </div>
+          <div class="cd-sep" aria-hidden="true" data-reveal data-delay="350">:</div>
+          <div class="cd-unit" data-reveal data-delay="400">
+            <span class="cd-number" id="cd-secs" aria-label="segundos">—</span>
+            <span class="cd-unit-label">Segundos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENT -->
+    <section id="event" class="section" aria-label="Detalles del evento">
+      <div class="section-inner">
+        <div class="event-layout">
+          <!-- Timeline -->
+          <div>
+            <span class="section-label" data-reveal>El gran día</span>
+            <h2 class="section-title" data-reveal data-delay="100">Nos encontramos</h2>
+            <nav class="event-timeline" aria-label="Programa del evento">
+              <div class="timeline-item" data-reveal data-delay="200">
+                <span class="timeline-time">18:00</span>
+                <div class="timeline-dot" aria-hidden="true"></div>
+                <span class="timeline-label">Ceremonia</span>
+              </div>
+              <div class="timeline-item" data-reveal data-delay="300">
+                <span class="timeline-time">19:30</span>
+                <div class="timeline-dot" aria-hidden="true"></div>
+                <span class="timeline-label">Recepción</span>
+              </div>
+              <div class="timeline-item" data-reveal data-delay="400">
+                <span class="timeline-time">20:00</span>
+                <div class="timeline-dot" aria-hidden="true"></div>
+                <span class="timeline-label">Fiesta</span>
+              </div>
+            </nav>
+          </div>
+
+          <!-- Venue -->
+          <div class="event-venue">
+            <div class="venue-card" data-reveal>
+              <p class="section-label" style="margin-bottom:4px">Lugar</p>
+              <p class="venue-name">Villa Carlos Paz</p>
+              <address class="venue-address" style="font-style:normal">
+                Av. Perito Moreno 1760<br>
+                Villa Carlos Paz, Córdoba
+              </address>
+            </div>
+            <div data-reveal data-delay="200">
+              <a
+                href="https://maps.app.goo.gl/qtxSwoMXrxTWdYDj7"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary"
+                aria-label="Ver ubicación en Google Maps"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                  <circle cx="12" cy="9" r="2.5"/>
+                </svg>
+                Ver ubicación
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DRESS CODE -->
+    <section id="dresscode" class="section" aria-label="Código de vestimenta">
+      <div class="section-inner">
+        <div class="dresscode-card" data-reveal>
+          <div class="dresscode-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+              <path d="M12 2L8 6H4l2 4-4 2 4 2-2 4h4l4 4 4-4h4l-2-4 4-2-4-2 2-4h-4l-4-4z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </div>
+          <div class="dresscode-ornament" aria-hidden="true"></div>
+          <p class="section-label" style="text-align:center;margin-bottom:8px">Código de vestimenta</p>
+          <h2 class="dresscode-title">Cocktail</h2>
+          <div class="dresscode-ornament" aria-hidden="true"></div>
+          <p class="dresscode-text">Semiformal</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAYLIST -->
+    <section id="playlist" class="section" aria-label="Playlist">
+      <div class="section-inner">
+        <div class="playlist-layout">
+          <div class="playlist-text">
+            <span class="section-label" data-reveal>Música</span>
+            <h2 class="section-title" data-reveal data-delay="100">La banda sonora<br>de nuestra historia</h2>
+            <p class="section-lead" data-reveal data-delay="200">
+              Ayudanos a pensar qué música no puede faltar para este día tan especial.
+            </p>
+            <p class="playlist-subtext" data-reveal data-delay="300">
+              Si tu sugerencia no está en Spotify, no dudes en avisarnos por mensaje.
+            </p>
+          </div>
+          <div class="playlist-embed" data-reveal data-delay="200">
+            <iframe
+              src="https://open.spotify.com/embed/playlist/7vgeaLq7H23qs4Ox2wvUUm?utm_source=generator&theme=0"
+              width="100%"
+              height="380"
+              frameborder="0"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              title="Playlist de Mariana y Pablo"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="section" aria-label="Galería de fotos">
+      <div class="section-inner">
+        <div class="gallery-header">
+          <span class="section-label" data-reveal>Nuestra historia</span>
+          <h2 class="section-title" data-reveal data-delay="100">Momentos</h2>
+        </div>
+        <div id="gallery-grid" role="list" aria-label="Fotos de Mariana y Pablo"></div>
+      </div>
+    </section>
+
+    <!-- GIFT -->
+    <section id="gift" class="section" aria-label="Regalo">
+      <div class="section-inner">
+        <div class="gift-inner">
+          <span class="section-label" data-reveal>Regalo</span>
+          <h2 class="section-title" data-reveal data-delay="100">Luna de Miel</h2>
+          <p class="section-lead" data-reveal data-delay="200">
+            Tu presencia es nuestro mejor regalo, pero si deseas acompañarnos con un obsequio, puedes colaborar con nuestra luna de miel.
+          </p>
+
+          <div class="gift-card" data-reveal data-delay="300">
+            <span class="gift-alias-label">Alias</span>
+            <span class="gift-alias" id="gift-alias-text">bodayfernet</span>
+            <span class="gift-holder">Mariana Ailin Limarino</span>
+          </div>
+
+          <div data-reveal data-delay="400">
+            <button
+              class="btn-ghost"
+              id="copy-alias-btn"
+              type="button"
+              aria-label="Copiar alias bodayfernet al portapapeles"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <rect x="9" y="9" width="13" height="13" rx="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+              Copiar Alias
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section id="rsvp" class="section" aria-label="Confirmación de asistencia">
+      <div class="section-inner">
+        <div class="rsvp-inner">
+          <span class="section-label" data-reveal>Asistencia</span>
+          <h2 class="section-title" data-reveal data-delay="100">Confirmación<br>de asistencia</h2>
+          <p class="rsvp-deadline" data-reveal data-delay="200">
+            Por favor confirmar antes del <strong>10 de septiembre de 2026</strong>
+          </p>
+          <div data-reveal data-delay="300">
+            <button
+              class="btn-primary"
+              id="rsvp-btn"
+              type="button"
+              aria-label="Confirmar asistencia al casamiento"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5"/>
+              </svg>
+              Confirmar asistencia
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer aria-label="Pie de página">
+      <div class="footer-inner">
+        <p class="footer-names" data-reveal>
+          Mariana Ailin <span>&amp;</span> Pablo Matias
+        </p>
+        <p class="footer-date" data-reveal data-delay="150">10 · Octubre · 2026</p>
+        <div class="footer-divider" aria-hidden="true"></div>
+        <p class="footer-msg" data-reveal data-delay="300">
+          Gracias por acompañarnos en este momento tan especial
+        </p>
+        <p class="footer-copy">Hecho con amor · 2026</p>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Music player -->
+  <audio id="music-audio" preload="none" aria-hidden="true"></audio>
+  <button
+    id="music-btn"
+    type="button"
+    aria-label="Reproducir música"
+    title="Música"
+  >
+    <div class="music-rings" aria-hidden="true"></div>
+    <!-- Play icon -->
+    <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M8 5v14l11-7L8 5z"/>
+    </svg>
+    <!-- Pause icon -->
+    <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+    </svg>
+  </button>
+
+  <!-- Scripts (ES modules) -->
+  <script type="module" src="js/app.js"></script>
+
+</body>
+</html>
