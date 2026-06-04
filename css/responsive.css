@@ -53,7 +53,7 @@
   .countdown-grid { gap: 12px; }
   .cd-number      { font-size: clamp(2.6rem, 11vw, 4rem); }
   .cd-sep         { display: none; }
-  .cd-unit        { min-width: 60px; }
+  .cd-unit        { min-width: 50px; }
 
   /* Gallery */
   #gallery-grid { columns: 1; }
@@ -131,9 +131,9 @@
 }
 
 /* ---- Print ------------------------------------------------- */
-@media print {
-  #envelope-screen,
+@media print {  
   #music-btn,
+  #envelope-screen,
   .toast,
   .lb-nav,
   .lb-close { display: none !important; }
