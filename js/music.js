@@ -53,4 +53,10 @@ export function initMusic() {
   document.addEventListener('visibilitychange', () => {
     if (document.hidden && playing) pause();
   });
+  // Reproducir automáticamente cuando se ingresa la contraseña correcta
+  document.addEventListener('wedding:auth', () => {
+    setTimeout(() => {
+      play();
+    }, 500); // Pequeño delay para que se complete la transición
+  });
 }
